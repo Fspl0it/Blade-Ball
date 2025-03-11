@@ -479,7 +479,7 @@ function Library:new()
 		Glow.BorderSizePixel = 0
 		Glow.Position = UDim2.new(0.5, 0, 0.5, 0)
 		Glow.Size = UDim2.new(0, 190, 0, 53)
-		Glow.Image = "rbxassetid://17290723539"
+		Glow.Image = ""
 		Glow.ImageTransparency = 1.000
 
 		local Fill = Instance.new("Frame")
@@ -660,7 +660,7 @@ function Library:new()
 			Glow.BorderSizePixel = 0
 			Glow.Position = UDim2.new(0.5, 0, 0.5, 0)
 			Glow.Size = UDim2.new(0, 27, 0, 27)
-			Glow.Image = "rbxassetid://17290798394"
+			Glow.Image = ""
 			Glow.ImageTransparency = 1.000
 
 			local Fill = Instance.new("Frame")
@@ -733,19 +733,22 @@ function Library:new()
 				return
 			end
 
-			local number = math.floor(((self.maximum_value - self.minimum_value) * result) + self.minimum_value)
+                        local number = math.floor(((self.maximum_value - self.minimum_value) * result) + self.minimum_value)
 			local slider_size = math.clamp(result, 0.001, 0.999)
 			
-			local UIGradient = Instance.new("UIGradient")
-			UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 102, 102)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 0, 0))}
-			UIGradient.Transparency = NumberSequence.new({
-		           NumberSequenceKeypoint.new(0, 0),
- 			   NumberSequenceKeypoint.new(slider_size, 0),
- 			   NumberSequenceKeypoint.new(math.min(slider_size + 0.03, 1), 1),
-			   NumberSequenceKeypoint.new(1, 1)
+			self.slider.Box.Fill.UIGradient.Transparency = NumberSequence.new({
+				NumberSequenceKeypoint.new(0, 0),
+				NumberSequenceKeypoint.new(slider_size, 0),
+				NumberSequenceKeypoint.new(math.min(slider_size + 0.001, 1), 1),
+				NumberSequenceKeypoint.new(1, 1)
 			})
-			UIGradient.Parent = Glow
-
+			
+			self.slider.Box.Glow.UIGradient.Transparency = NumberSequence.new({
+				NumberSequenceKeypoint.new(0, 0),
+				NumberSequenceKeypoint.new(slider_size, 0),
+				NumberSequenceKeypoint.new(math.min(slider_size + 0.03, 1), 1),
+				NumberSequenceKeypoint.new(1, 1)
+			})
 
 			Library.Flags[self.flag] = number
 
