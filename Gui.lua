@@ -228,7 +228,7 @@ function Library:new()
 	tabs.Size = UDim2.new(0, 209, 0, 386)
 	tabs.ScrollBarImageColor3 = Color3.fromRGB(0, 0, 0)
 	tabs.ScrollBarThickness = 0
-     tabs.Parent = container.Container
+        tabs.Parent = container.Container
 
 	local tabslist = Instance.new("UIListLayout")
 	tabslist.Parent = tabs
@@ -473,7 +473,7 @@ function Library:new()
 		Glow.Name = "Glow"
 		Glow.Parent = tab
 		Glow.AnchorPoint = Vector2.new(0.5, 0.5)
-		Glow.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		Glow.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 		Glow.BackgroundTransparency = 1.000
 		Glow.BorderColor3 = Color3.fromRGB(0, 0, 0)
 		Glow.BorderSizePixel = 0
@@ -654,7 +654,7 @@ function Library:new()
 			Glow.Name = "Glow"
 			Glow.Parent = Checkbox
 			Glow.AnchorPoint = Vector2.new(0.5, 0.5)
-			Glow.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			Glow.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 			Glow.BackgroundTransparency = 1.000
 			Glow.BorderColor3 = Color3.fromRGB(0, 0, 0)
 			Glow.BorderSizePixel = 0
@@ -736,19 +736,16 @@ function Library:new()
 			local number = math.floor(((self.maximum_value - self.minimum_value) * result) + self.minimum_value)
 			local slider_size = math.clamp(result, 0.001, 0.999)
 			
-			self.slider.Box.Fill.UIGradient.Transparency = NumberSequence.new({
-				NumberSequenceKeypoint.new(0, 0),
-				NumberSequenceKeypoint.new(slider_size, 0),
-				NumberSequenceKeypoint.new(math.min(slider_size + 0.001, 1), 1),
-				NumberSequenceKeypoint.new(1, 1)
+			local UIGradient = Instance.new("UIGradient")
+			UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 102, 102)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 0, 0))}
+			UIGradient.Transparency = NumberSequence.new({
+		           NumberSequenceKeypoint.new(0, 0),
+ 			   NumberSequenceKeypoint.new(slider_size, 0),
+ 			   NumberSequenceKeypoint.new(math.min(slider_size + 0.03, 1), 1),
+			   NumberSequenceKeypoint.new(1, 1)
 			})
-			
-			self.slider.Box.Glow.UIGradient.Transparency = NumberSequence.new({
-				NumberSequenceKeypoint.new(0, 0),
-				NumberSequenceKeypoint.new(slider_size, 0),
-				NumberSequenceKeypoint.new(math.min(slider_size + 0.03, 1), 1),
-				NumberSequenceKeypoint.new(1, 1)
-			})
+			UIGradient.Parent = Glow
+
 
 			Library.Flags[self.flag] = number
 
