@@ -189,7 +189,7 @@ function Library:new()
 	Logo.BorderSizePixel = 0
 	Logo.Position = UDim2.new(0.0387367606, 0, 0.5, 0)
 	Logo.Size = UDim2.new(0, 30, 0, 25)
-	Logo.Image = "rbxassetid://7743870134"
+	Logo.Image = "" --rbxassetid://7743870134
 	
 	local TextLabel = Instance.new("TextLabel")
 	TextLabel.Parent = Top
