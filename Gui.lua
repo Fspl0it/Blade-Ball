@@ -498,7 +498,8 @@ function Library:new()
 		UICorner_2.Parent = Fill
 
 		local UIGradient = Instance.new("UIGradient")
-		UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(66, 89, 182)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(37, 57, 137))}
+                UIGradient.Color = ColorSequence.new{ 
+		ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 102, 102)),ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 0, 0))}
 		UIGradient.Rotation = 20
 		UIGradient.Parent = Fill
 
@@ -678,7 +679,7 @@ function Library:new()
 			UICorner_3.Parent = Fill
 
 			local UIGradient = Instance.new("UIGradient")
-			UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(66, 89, 182)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(37, 57, 137))}
+			UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 102, 102)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 0, 0))}
 			UIGradient.Rotation = 20
 			UIGradient.Parent = Fill
 
@@ -814,10 +815,12 @@ function Library:new()
 			Glow.ZIndex = 2
 			Glow.Image = "rbxassetid://17381990533"
 
-			local UIGradient = Instance.new("UIGradient")
+	                local UIGradient = Instance.new("UIGradient")
+			UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 102, 102)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 0, 0))}
 			UIGradient.Transparency = NumberSequence.new{NumberSequenceKeypoint.new(0.00, 0.00), NumberSequenceKeypoint.new(0.50, 0.00), NumberSequenceKeypoint.new(0.53, 1.00), NumberSequenceKeypoint.new(1.00, 1.00)}
 			UIGradient.Parent = Glow
-
+			
+			
 			local Fill = Instance.new("ImageLabel")
 			Fill.Name = "Fill"
 			Fill.Parent = Box
