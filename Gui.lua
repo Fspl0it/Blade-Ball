@@ -479,7 +479,7 @@ function Library:new()
 		Glow.BorderSizePixel = 0
 		Glow.Position = UDim2.new(0.5, 0, 0.5, 0)
 		Glow.Size = UDim2.new(0, 190, 0, 53)
-		Glow.Image = ""
+		Glow.Image = "rbxassetid://17290798394"
 		Glow.ImageTransparency = 1.000
 
 		local Fill = Instance.new("Frame")
@@ -660,7 +660,7 @@ function Library:new()
 			Glow.BorderSizePixel = 0
 			Glow.Position = UDim2.new(0.5, 0, 0.5, 0)
 			Glow.Size = UDim2.new(0, 27, 0, 27)
-			Glow.Image = ""
+			Glow.Image = "rbxassetid://17290798394"
 			Glow.ImageTransparency = 1.000
 
 			local Fill = Instance.new("Frame")
