@@ -14,8 +14,8 @@ local Library = {
     drag_position = nil;
     start_position = nil;
 }
-if not isfolder("Rise") then
-    makefolder("Rise")
+if not isfolder("Arise") then
+    makefolder("Arise")
 end
 function Library:disconnect()
 	for _, value in Library.connections do
@@ -28,7 +28,7 @@ function Library:disconnect()
 end
 function Library:clear()
 	for _, object in CoreGui:GetChildren() do
-		if object.Name ~= "Rise" then
+		if object.Name ~= "Arise" then
 			continue
 		end
 		object:Destroy()
@@ -42,12 +42,12 @@ end
 function Library:save_flags()
     if not Library.exist() then return end
     local flags = HttpService:JSONEncode(Library.Flags)
-    writefile(`Rise/{game.GameId}.lua`, flags)
+    writefile(`Arise/{game.GameId}.lua`, flags)
 end
 
 function Library:load_flags()
-    if not isfile(`Rise/{game.GameId}.lua`) then Library.save_flags() return end
-    local flags = readfile(`Rise/{game.GameId}.lua`)
+    if not isfile(`Arise/{game.GameId}.lua`) then Library.save_flags() return end
+    local flags = readfile(`Arise/{game.GameId}.lua`)
     if not flags then Library.save_flags() return end
     Library.Flags = HttpService:JSONDecode(flags)
 end
@@ -107,7 +107,7 @@ function Library:visible()
 end
 function Library.__init()
 	local container = Instance.new("ScreenGui")
-	container.Name = "Rise"
+	container.Name = "Arise"
     container.Parent = CoreGui
     Library.core = container
 	local Shadow = Instance.new("ImageLabel")
